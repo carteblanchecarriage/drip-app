@@ -43,7 +43,7 @@ export default function Calc({ measure }) {
             setGutterWidth(12 * 0.0106 * Math.pow(ratio, -(4 / 7)) * Math.pow(length, (3 / 28)) * Math.pow((rainfall * (width * length)), (5 / 14)));
             setGutterDepth(gutterWidth * ratio)
         }
-    }, [measure])
+    }, [measure, ratio, length, width, rainfall])
 
 
     return (
