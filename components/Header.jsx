@@ -29,7 +29,7 @@ export default function Header() {
                         </a>
                     </ul>
 
-                    <div className="hamburger" className="active" id="hamburger">
+                    <div className="hamburger" id="hamburger">
                         <span className="bar"></span>
                         <span className="bar"></span>
                         <span className="bar"></span>
