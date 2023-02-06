@@ -37,10 +37,11 @@ export default function Calc({ measure }) {
     useEffect(({ measure, gutterWidth, ratio, length, rainfall, width }) => {
         if (measure == 'metric') {
             setGutterWidth(2.54 * (12 * 0.0106 * Math.pow(ratio, -(4 / 7)) * Math.pow(length, (3 / 28)) * Math.pow((rainfall * (width * length)), (5 / 14))));
+            setGutterDepth(gutterWidth * ratio)
         } else {
             setGutterWidth(12 * 0.0106 * Math.pow(ratio, -(4 / 7)) * Math.pow(length, (3 / 28)) * Math.pow((rainfall * (width * length)), (5 / 14)));
+            setGutterDepth(gutterWidth * ratio)
         }
-        setGutterDepth(gutterWidth * ratio)
     })
 
 
