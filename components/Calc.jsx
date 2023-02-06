@@ -42,7 +42,7 @@ export default function Calc({ measure }) {
             setGutterWidth(12 * 0.0106 * Math.pow(ratio, -(4 / 7)) * Math.pow(length, (3 / 28)) * Math.pow((rainfall * (width * length)), (5 / 14)));
             setGutterDepth(gutterWidth * ratio)
         }
-    })
+    }, measure)
 
 
     return (
@@ -51,8 +51,8 @@ export default function Calc({ measure }) {
                 className="bg-white flex flex-col justify-center items-center w-4/6 md:3/6 lg:w-2/6 mt-4"
             >
                 {measure == "imperial" ? (
-                    <div className="">"Hello American!"</div>
-                ) : (<div className="">"Hello Most Everyone!"</div>)
+                    <div className="">Hello American!</div>
+                ) : (<div className="">Hello Most Everyone!</div>)
                 }
             </div>
 
