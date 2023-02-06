@@ -32,6 +32,7 @@ export default function Calc({ measure }) {
         setRainfall(e.rainfall)
         setLength(e.length)
         setWidth(e.width)
+        console.log(e)
     }
 
     useEffect(() => {
