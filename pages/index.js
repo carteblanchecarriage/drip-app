@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import MeasureSystem from '@/components/MeasureSystem'
 import Calc from '@/components/Calc'
 import { useState, useEffect } from 'react'
+import TestForm from '@/components/TestForm'
 
 export default function Home() {
   const [measure, setMeasure] = useState();
@@ -18,14 +19,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="absolute top-0 flex flex-col justify-center items-center h-screen w-screen">
-        <h3 className="text-white section-heading w-4/6 md:3/6 lg:w-2/6 bg-blue-400 flex justify-center mt-4">Select a Measurement System</h3>
+      {/*       <TestForm /> */}
+
+      <div className="static top-0 flex flex-col justify-center items-center h-screen w-screen">
+        {measure ? null :
+          (<h3 className="text-white section-heading w-4/6 md:3/6 lg:w-2/6 bg-blue-400 flex justify-center mt-4">Select a Measurement System</h3>)
+        }
+
         <MeasureSystem
           setMeasure={setMeasure}
         />
         {measure ? (<Calc
           measure={measure}
         />) : null}
+
       </div>
       <Footer
         className="absolute bottom-0 bg-h-48"

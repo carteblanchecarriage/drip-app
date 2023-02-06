@@ -27,5 +27,8 @@ a {
 
 .section-heading {
   font-size: 2em;
+}
 
+.grayscale {
+  filter: grayscale(100%)
 }
