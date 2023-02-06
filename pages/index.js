@@ -19,7 +19,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {/*       <TestForm /> */}
 
       <div className="static top-0 flex flex-col justify-center items-center h-screen w-screen">
         {measure ? null :

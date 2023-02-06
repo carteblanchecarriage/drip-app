@@ -32,3 +32,5 @@ a {
 .grayscale {
   filter: grayscale(100%)
 }
+
+.result-change {}

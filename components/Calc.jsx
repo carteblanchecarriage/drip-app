@@ -12,6 +12,17 @@ export default function Calc({ measure }) {
     const [gutterWidth, setGutterWidth] = useState(0)
     const [gutterDepth, setGutterDepth] = useState(0)
 
+    let unitSm = ""
+    let unitLg = ""
+
+    if (measure === "metric") {
+        unitLg = "(meters)"
+        unitSm = "cm"
+    } else {
+        unitLg = "(ft)"
+        unitSm = "inches"
+    }
+
     const handleClear = () => {
         setRainfall(0)
         setRatio(0.75)
@@ -49,7 +60,7 @@ export default function Calc({ measure }) {
                 <div className="shadow-md">
                     <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center mt-4">Rainfall Intensity</h3>
                     <div className="bg-white flex flex-col justify-center items-center w-full">
-                        <label for="rainfall">Location</label>
+                        <label htmlFor="rainfall">Location</label>
                         <select
                             id="rainfall"
                             onInput={(e) => setRainfall(e.target.value)}
@@ -71,7 +82,7 @@ export default function Calc({ measure }) {
                     <div className="flex flex-col w-full bg-white">
 
                         <div className="flex mt-2">
-                            <label for="width" className="w-24">Width</label>
+                            <label htmlFor="width" className="mr-2">Roof Width {unitLg}</label>
                             <input
                                 id="width"
                                 type="number"
@@ -83,7 +94,7 @@ export default function Calc({ measure }) {
                         </div>
 
                         <div className="flex my-2">
-                            <label for="length" className="w-24">Length</label>
+                            <label htmlFor="length" className="mr-2">Roof Length {unitLg}</label>
                             <input
                                 id="length"
                                 type="number"
@@ -97,7 +108,7 @@ export default function Calc({ measure }) {
                     </div>
                 </div>
 
-                <label for="ratio">Gutter Ratio</label>
+                <label htmlFor="ratio">Gutter Ratio</label>
                 <input
                     id="ratio"
                     type="range"
@@ -127,16 +138,9 @@ export default function Calc({ measure }) {
 
             <div className="shadow-md w-4/6 md:3/6 lg:w-2/6 flex flex-col justify-center mt-4 mb-48">
                 <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center mt-4">Results</h3>
-                <div className=" bg-white w-full">
-                    {measure == 'imperial' ? (
-                        <>
-                            <p>Gutter Width: {Math.ceil(gutterWidth)} in</p>
-                            <p>Gutter Depth: {Math.ceil(gutterDepth)} in</p>
-                        </>) : (
-                        <>
-                            <p>Gutter Width: {Math.ceil(gutterWidth)} cm</p>
-                            <p>Gutter Depth: {Math.ceil(gutterDepth)} cm</p>
-                        </>)}
+                <div className=" bg-white w-full result-change">
+                    <p>Gutter Width: {Math.ceil(gutterWidth)} {unitSm}</p>
+                    <p>Gutter Depth: {Math.ceil(gutterDepth)} {unitSm}</p>
                 </div>
             </div>
         </>
