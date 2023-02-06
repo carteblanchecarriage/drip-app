@@ -25,8 +25,7 @@ export default function Calc({ measure }) {
     }
 
     const handleClear = () => {
-        setInputs({ ...inputs, rainfall: 0 })
-        setInputs({ ...inputs, ratio: .75 })
+        setInputs({ ...inputs, ratio: .75, rainfall: "" })
     }
 
     let widthMath = 0
@@ -58,7 +57,7 @@ export default function Calc({ measure }) {
             gutterCalc()
             setInputs({ ...inputs, gutterWidth: widthMath, gutterDepth: depthMath })
         }
-    }, [measure, inputs.ratio, inputs.width, inputs.length])
+    }, [measure, inputs.ratio, inputs.width, inputs.length, inputs.rainfall])
 
     return (
         <>
