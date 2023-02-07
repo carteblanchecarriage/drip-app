@@ -8,7 +8,12 @@ D.R.I.P is a web app to size gutters for pitched roofs by using project data as 
 - Deployed on Vercel
 - Form uses "react-hook-form"
 - Development server using Node.js
-- Responsive (work in progress)
+- Responsive
+
+TO-DO
+- Hamburger menu
+- Dark Mode
+- Download Report
 
 V1 is available here: https://github.com/carteblanchecarriage/d.r.i.p.
 - HTML, CSS, Javascript
