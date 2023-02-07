@@ -1,6 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About
 
-## Getting Started
+D.R.I.P is a web app to size gutters for pitched roofs by using project data as input, designed for professionals or anyone that needs to calculate gutters or downspouts.
+
+**This repo is V2 of the project.**
+- Built using Next.js
+- Utilizes Tailwind
+- Deployed on Vercel
+- Form uses "react-hook-form"
+- Development server using Node.js
+- Responsive (work in progress)
+
+V1 is available here: https://github.com/carteblanchecarriage/d.r.i.p.
+- HTML, CSS, Javascript
+- Hosted on github pages
+- My first web app, built to test expand my knowledge of basic web development and design
+
+## Getting Started Locally
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
