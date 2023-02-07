@@ -60,3 +60,13 @@ a {
     'GRAD' 0,
     'opsz' 48
 }
+
+.badge {
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  background-color: #dbeafe;
+  margin-top: 1rem;
+  padding: 0 1rem;
+  color: #2563eb;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
+import { Tooltip } from '@chakra-ui/react'
 
 export default function Calc({ measure }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -65,14 +66,16 @@ export default function Calc({ measure }) {
     return (
         <>
             {measure == "imperial" ? (
-                <div className="flex justify-center rounded bg-blue-100 text-blue-600 mt-2 px-4">Hello American!</div>
-            ) : (<div className="flex justify-center rounded bg-blue-100 text-blue-600 mt-2 px-4">Hello Most Everyone!</div>)
+                <div className="badge">Hello American!</div>
+            ) : (<div className="badge">Hello Most Everyone!</div>)
             }
 
             <div className="mt-4 md:w-96">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="w-full shadow-md">
-                        <h3 className="w-full text-white section-heading bg-blue-400 flex justify-center text-center mt-4 px-2">Rainfall Intensity {rainIntensity}</h3>
+                        <Tooltip label="this is where the rain info is from" placement="top">
+                            <h3 className="w-full text-white section-heading bg-blue-400 flex justify-center text-center mt-4 px-2">Rainfall Intensity {rainIntensity}</h3>
+                        </Tooltip>
                         <div className="bg-white flex flex-col justify-center items-center w-full">
                             <label htmlFor="rainfall">Location</label>
                             <select
@@ -92,7 +95,9 @@ export default function Calc({ measure }) {
                     </div>
 
                     <div className="shadow-md">
-                        <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center text-center mt-4">Drainage Area</h3>
+                        <Tooltip label="the horizontal plane of the roof area you're draining" placement="top">
+                            <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center text-center mt-4">Drainage Area</h3>
+                        </Tooltip>
                         <div className="flex flex-col w-full bg-white">
 
                             <div className="flex mt-2">

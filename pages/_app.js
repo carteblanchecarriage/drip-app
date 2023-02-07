@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
-import Head from 'next/head'
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 import { Asap } from '@next/font/google'
 
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <main>
-        <Component {...pageProps} />
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
       </main>
     </>
   )
