@@ -11,6 +11,10 @@ D.R.I.P is a web app to size gutters for pitched roofs by using project data as 
 - Responsive
 
 TO-DO
+- Textarea Rainfall Intensity
+- Tooltips for where references come from
+- Show roof and gutter area calculations
+- Graphics that explain roof area and ratio
 - Hamburger menu
 - Dark Mode
 - Download Report
