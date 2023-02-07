@@ -15,17 +15,20 @@ export default function Calc({ measure }) {
 
     let unitSm = ""
     let unitLg = ""
+    let rainIntensity = ""
 
     if (measure === "metric") {
         unitLg = "(meters)"
         unitSm = "cm"
+        rainIntensity = "(cm/hr)"
     } else {
         unitLg = "(ft)"
         unitSm = "inches"
+        rainIntensity = "(in/hr)"
     }
 
     const handleClear = () => {
-        setInputs({ ...inputs, ratio: .75, rainfall: "" })
+        setInputs({ ...inputs, ratio: .75, rainfall: "", gutterWidth: "", gutterDepth: "" })
     }
 
     let widthMath = 0
@@ -61,103 +64,103 @@ export default function Calc({ measure }) {
 
     return (
         <>
-            <div
-                className="bg-white flex flex-col justify-center items-center w-4/6 md:3/6 lg:w-2/6 mt-4"
-            >
-                {measure == "imperial" ? (
-                    <div className="">Hello American!</div>
-                ) : (<div className="">Hello Most Everyone!</div>)
-                }
-            </div>
+            {measure == "imperial" ? (
+                <div className="flex justify-center rounded bg-blue-100 text-blue-600 mt-2 px-4">Hello American!</div>
+            ) : (<div className="flex justify-center rounded bg-blue-100 text-blue-600 mt-2 px-4">Hello Most Everyone!</div>)
+            }
 
-            <form onSubmit={handleSubmit(onSubmit)} className="w-4/6 md:3/6 lg:w-2/6 flex flex-col justify-center mt-4">
-
-                <div className="shadow-md">
-                    <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center mt-4">Rainfall Intensity</h3>
-                    <div className="bg-white flex flex-col justify-center items-center w-full">
-                        <label htmlFor="rainfall">Location</label>
-                        <select
-                            id="rainfall"
-                            onInput={(e) => setInputs({ ...inputs, rainfall: e.target.value })}
-                            {...register("rainfall", { required: true })}
-                        >
-                            <option value="">Nearest City</option>
-                            <option value="1.0">Cleveland</option>
-                            <option value="2.6">Pittsburgh</option>
-                            <option value="1.4">Seattle</option>
-                            <option value="4.7">Miami</option>
-                        </select>
-                        {errors.rainfall && <span className="bg-red-400 text-sm">Please enter a location</span>}
-                        <span className="h-8">{inputs.rainfall}</span>
-                    </div>
-                </div>
-
-                <div className="shadow-md">
-                    <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center mt-4">Drainage Area</h3>
-                    <div className="flex flex-col w-full bg-white">
-
-                        <div className="flex mt-2">
-                            <label htmlFor="width" className="mr-2">Roof Width {unitLg}</label>
-                            <input
-                                id="width"
-                                type="number"
-                                className="bg-gray-100 w-24"
-                                onInput={(e) => setInputs({ ...inputs, width: e.target.value })}
-                                {...register("width", { required: true })}
-                            />
-                            {errors.width && <span className="bg-red-400 text-sm px-2">Please enter a width</span>}
+            <div className="mt-4 md:w-96">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="w-full shadow-md">
+                        <h3 className="w-full text-white section-heading bg-blue-400 flex justify-center text-center mt-4 px-2">Rainfall Intensity {rainIntensity}</h3>
+                        <div className="bg-white flex flex-col justify-center items-center w-full">
+                            <label htmlFor="rainfall">Location</label>
+                            <select
+                                id="rainfall"
+                                onInput={(e) => setInputs({ ...inputs, rainfall: e.target.value })}
+                                {...register("rainfall", { required: true })}
+                            >
+                                <option value="">Nearest City</option>
+                                <option value="1.0">Cleveland</option>
+                                <option value="2.6">Pittsburgh</option>
+                                <option value="1.4">Seattle</option>
+                                <option value="4.7">Miami</option>
+                            </select>
+                            {errors.rainfall && <span className="bg-red-400 text-sm">Please enter a location</span>}
+                            <span className="h-8">{inputs.rainfall}</span>
                         </div>
-
-                        <div className="flex my-2">
-                            <label htmlFor="length" className="mr-2">Roof Length {unitLg}</label>
-                            <input
-                                id="length"
-                                type="number"
-                                className="bg-gray-100 w-24"
-                                onInput={(e) => setInputs({ ...inputs, length: e.target.value })}
-                                {...register("length", { required: true })}
-                            />
-                            {errors.length && <span className="bg-red-400 text-sm px-2">Please enter a length</span>}
-                        </div>
-
                     </div>
-                </div>
 
-                <label htmlFor="ratio">Gutter Ratio</label>
-                <input
-                    id="ratio"
-                    type="range"
-                    min={.25}
-                    max={1}
-                    step={.25}
-                    value={inputs.ratio}
-                    onChange={(e) => setInputs({ ...inputs, ratio: e.target.value })}
-                    className="w-48"
-                ></input>
-                <div>{inputs.ratio}</div>
+                    <div className="shadow-md">
+                        <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center text-center mt-4">Drainage Area</h3>
+                        <div className="flex flex-col w-full bg-white">
 
-                <div className="flex justify-center">
+                            <div className="flex mt-2">
+                                <label htmlFor="width" className="mr-2">Roof Width {unitLg}</label>
+                                <input
+                                    id="width"
+                                    type="number"
+                                    className="bg-gray-100 w-24"
+                                    onInput={(e) => setInputs({ ...inputs, width: e.target.value })}
+                                    {...register("width", { required: true })}
+                                />
+                                {errors.width && <span className="bg-red-400 text-sm px-2">Please enter a width</span>}
+                            </div>
+
+                            <div className="flex my-2">
+                                <label htmlFor="length" className="mr-2">Roof Length {unitLg}</label>
+                                <input
+                                    id="length"
+                                    type="number"
+                                    className="bg-gray-100 w-24"
+                                    onInput={(e) => setInputs({ ...inputs, length: e.target.value })}
+                                    {...register("length", { required: true })}
+                                />
+                                {errors.length && <span className="bg-red-400 text-sm px-2">Please enter a length</span>}
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <label htmlFor="ratio" className="flex justify-center">Gutter Ratio</label>
                     <input
-                        type="submit"
-                        value="Submit"
-                        className="bg-white p-2 mr-2 active:bg-blue-100 w-24"
-                        onClick={handleSubmit}
+                        id="ratio"
+                        type="range"
+                        min={.25}
+                        max={1}
+                        step={.25}
+                        value={inputs.ratio}
+                        onChange={(e) => setInputs({ ...inputs, ratio: e.target.value })}
+                        className="w-full"
                     ></input>
-                    <input
-                        type="reset"
-                        value="Clear"
-                        className="bg-white p-2 active:bg-blue-100 w-24"
-                        onClick={handleClear}
-                    ></input></div>
-            </form>
+                    <div className="flex justify-center">{inputs.ratio}</div>
 
-            <div className="shadow-md w-4/6 md:3/6 lg:w-2/6 flex flex-col justify-center mt-4 mb-48">
-                <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center mt-4">Results</h3>
-                <div className=" bg-white w-full result-change">
-                    <p>Gutter Width: {Math.ceil(inputs.gutterWidth)} {unitSm}</p>
-                    <p>Gutter Depth: {Math.ceil(inputs.gutterDepth)} {unitSm}</p>
+                    <div className="flex justify-center">
+                        <input
+                            type="submit"
+                            value="Submit"
+                            className="bg-white p-2 mr-2 active:bg-blue-100 w-24 hover:bg-blue-100 cursor-pointer"
+                            onClick={handleSubmit}
+                        ></input>
+                        <input
+                            type="reset"
+                            value="Clear"
+                            className="bg-white p-2 active:bg-blue-100 w-24 hover:bg-blue-100 cursor-pointer"
+                            onClick={handleClear}
+                        ></input>
+                    </div>
+                </form>
+
+                <div className="shadow-md mt-4 md:w-96">
+                    <h3 className="text-white section-heading w-full bg-blue-400 flex justify-center text-center mt-4">Results</h3>
+                    <div className=" bg-white">
+                        <p>Gutter Width: {Math.ceil(inputs.gutterWidth)} {unitSm}</p>
+                        <p>Gutter Depth: {Math.ceil(inputs.gutterDepth)} {unitSm}</p>
+                    </div>
                 </div>
             </div>
+
+
         </>
     )
 }
