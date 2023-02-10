@@ -15,12 +15,15 @@
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
-  background: linear-gradient(28deg, #e0faff, #f7feff);
   font-size: 1em;
-  min-height: 100vw
+}
+
+body {
+  background: linear-gradient(28deg, #e0faff, #f7feff);
+  object-fit: fill;
+  min-height: 100vh
 }
 
 @media only screen and (max-width: 900px) {
