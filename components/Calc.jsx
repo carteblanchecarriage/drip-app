@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Tooltip } from '@chakra-ui/react'
+import { Tooltip } from 'react-tooltip';
+
 
 export default function Calc({ measure }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -66,14 +67,17 @@ export default function Calc({ measure }) {
     return (
         <>
             {measure == "imperial" ? (
-                <div className="badge">Hello American!</div>
+                <>
+                    <Tooltip anchorId="tooltip" content="And Hello Liberia and Myanmar!" place="top" />
+                    <div id="tooltip" className="badge">Hello American!</div>
+                </>
             ) : (<div className="badge">Hello Most Everyone!</div>)
             }
 
             <div className="mt-4 md:w-96">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="w-full shadow-md">
-                        <Tooltip label="this is where the rain info is from" placement="top">
+                        <Tooltip text="this is where the rain info is from">
                             <h3 className="w-full text-white section-heading bg-blue-400 flex justify-center text-center mt-4 px-2">Rainfall Intensity {rainIntensity}</h3>
                         </Tooltip>
                         <div className="bg-white flex flex-col justify-center items-center w-full">

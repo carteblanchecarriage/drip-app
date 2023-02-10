@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import MeasureSystem from '@/components/MeasureSystem'
 import Calc from '@/components/Calc'
 import { useState, useEffect } from 'react'
+import 'react-tooltip/dist/react-tooltip.css'
 
 export default function Home() {
   const [measure, setMeasure] = useState();
